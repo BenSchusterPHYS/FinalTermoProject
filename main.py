@@ -1,41 +1,18 @@
 from Functions.initialize import initialize
-from Functions.deltaU import deltaU
-from Functions.plot import plot
+from Functions.loop import loop
 import numpy as np
 import random
 
 def main():
     size = 100
-    T = 2.5
+
+    # T values picked from Figure 8.9
+    T = [10, 5, 4, 3, 2.5, 2, 1.5, 1]
 
     grid = initialize(size)
-
-    # Precompute Boltzmann factors for positive energies
-    boltzmann = {
-        4: np.exp(-4 / T),
-        8: np.exp(-8 / T)
-    }
-
-    for k in range(100 * size**2):
-
-        i = random.randrange(size)
-        j = random.randrange(size)
-
-        dU = deltaU(i, j, grid, size)
-
-        if dU <= 0:
-            grid[i, j] *= -1
-        elif dU == 4:
-            if random.random() < boltzmann[4]:
-                grid[i, j] *= -1
-        elif dU == 8:
-            if random.random() < boltzmann[8]:
-                grid[i, j] *= -1
-
-    print("Magnetization:", np.sum(grid))
-
-    plot(grid, size)
-
+    
+    for t in T:
+        loop(size, grid, t, save = False)
 
 if __name__ == "__main__":
     main()
