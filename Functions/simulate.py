@@ -1,6 +1,6 @@
-#this loop has the plotting integrated into the function
+#perform simulation over prescribed time and return 2+1d grid for analysis
 
-def loop(size, grid, T, time):
+def simulate(size, grid, T, time):
     import numpy as np
     import random
     import matplotlib.pyplot as plt
@@ -12,11 +12,10 @@ def loop(size, grid, T, time):
         4: np.exp(-4 / T),
         8: np.exp(-8 / T)
     }
-    # Initialize plot
-    img_array = np.where(grid == 1, 0, 255).astype(np.uint8)
-    im = plt.imshow(img_array)
-    plt.ion()
-    plt.show()
+
+    #initialize 2+1d array
+    sim = []
+    print("Simulating...")
 
     # Actual loop
     for k in range(time):
@@ -35,8 +34,10 @@ def loop(size, grid, T, time):
             if random.random() < boltzmann[8]:
                 grid[i, j] *= -1
 
-        if k % 1000 == 0:
-            #print(f"Magnetization at temperature {T}:", np.sum(grid)) #uncomment this to spam your terminal
-            img_array = np.where(grid == 1, 0, 255)
-            im.set_data(img_array)
-            plt.pause(0.01)
+        if k % 1000 == 0: #don't need to save every step
+            sim.append(grid.copy())
+    
+    print("Simulation Complete")
+
+    sim = np.array(sim)
+    return sim
