@@ -13,7 +13,6 @@ def animate(sim):
     plt.show()
 
     for t in range(len(sim)):
-        #print(f"Magnetization at temperature {T}:", np.sum(grid)) #uncomment this to spam your terminal
         im.set_data(sim_img[t])
         plt.pause(0.01)
 

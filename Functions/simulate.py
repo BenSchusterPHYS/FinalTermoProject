@@ -1,17 +1,11 @@
 #perform simulation over prescribed time and return 2+1d grid for analysis
+#can simulate external B field
 
-def simulate(size, grid, T, time):
+def simulate(size, grid, T, time, B=0):
     import numpy as np
     import random
     import matplotlib.pyplot as plt
-    from Functions.deltaU import deltaU
-    
-
-    # Precompute Boltzmann factors for positive energies
-    boltzmann = {
-        4: np.exp(-4 / T),
-        8: np.exp(-8 / T)
-    }
+    from Functions.deltaUB import deltaUB
 
     #initialize 2+1d array
     sim = []
@@ -23,16 +17,10 @@ def simulate(size, grid, T, time):
         i = random.randrange(size)
         j = random.randrange(size)
 
-        dU = deltaU(i, j, grid, size)
+        dU = deltaUB(i, j, grid, size, B)
 
-        if dU <= 0:
+        if dU <= 0 or random.random() < np.exp(-dU / T):
             grid[i, j] *= -1
-        elif dU == 4:
-            if random.random() < boltzmann[4]:
-                grid[i, j] *= -1
-        elif dU == 8:
-            if random.random() < boltzmann[8]:
-                grid[i, j] *= -1
 
         if k % 1000 == 0: #don't need to save every step
             sim.append(grid.copy())
