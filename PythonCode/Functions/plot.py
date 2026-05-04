@@ -25,3 +25,21 @@ def plot(grid, T, save, scale = 5):
         img.save(save_path)
     
     img.show()
+
+def compare_plots(grid, transformed, T, sweep):
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+
+    ax[0].imshow(grid, cmap='gray', vmin=-1, vmax=1)
+    ax[0].set_title(f"Original Lattice\nT = {T}, Sweep = {sweep}")
+
+    ax[1].imshow(transformed, cmap='gray', vmin=-1, vmax=1)
+    ax[1].set_title("3x3 Block Transformation")
+
+    for a in ax:
+        a.set_xticks([])
+        a.set_yticks([])
+
+    plt.tight_layout()
+    plt.show()

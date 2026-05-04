@@ -11,7 +11,6 @@ def loop(size, grid, T, save):
     }
 
     for k in range(100 * size**2):
-
         i = random.randrange(size)
         j = random.randrange(size)
 

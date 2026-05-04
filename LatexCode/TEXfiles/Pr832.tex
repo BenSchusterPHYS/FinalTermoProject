@@ -1,0 +1,94 @@
+One of the most interesting features of the Ising model is the existence of a phase transition at a critical temperature \(T_c\). Below the critical temperature the spins tend to align, producing a magnetized state, while above the critical temperature random fluctuations dominate and the spins become disordered. Near the critical temperature the system develops structures on many different scales, making the behavior difficult to analyze. 
+
+A powerful method for studying systems near critical points is the \textit{renormalization group transform}. The central idea behind the renormalization group is to examine how a physical system changes when we ``zoom out'' and ignore small scale details. In the Ising model this can be accomplished using a procedure called a \textit{block spin transformation}.
+
+\subsection{Block Spin Transformations}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{BlockSpinEx.png}
+    \caption{Example of a \(3 \times 3\) block spin transformation applied to a \(90 \times 90\) lattice at \(T = 0\). Each \(3 \times 3\) grid is replaced by a single site whose spin is the majority of the original block.}
+    \label{fig:blockspin}
+\end{figure}
+
+Instead of studying every microscopic spin individually, in a block spin transform, neighboring sites are grouped together into larger blocks and replaced by a single effective spin.
+
+As example, we will divide the lattice into \(3 \times 3\) blocks. Each block contains nine spins. The spins inside each block are replaced by a single new spin according to the \textit{majority rule}:
+
+    \[S_{\mathrm{new}} = \begin{cases}
+        +1 & \text{if most spins point up}, \\
+        -1 & \text{if most spins point down}.
+    \end{cases}\]
+
+Since each block contains nine spins, ties are impossible.
+
+Applying this transformation to the entire lattice reduces the size of the lattice by a factor of three in each direction. For example, a \(90 \times 90\) lattice becomes a \(30 \times 30\) lattice after one transformation as seen in Figure~\ref{fig:blockspin}. Notice that after the block spin transformation, the transformed lattice resembles the structure of the original lattice, but with less precision. 
+
+As discussed earlier, the Ising model was simulated using the Metropolis algorithm. During each Monte Carlo sweep, a random spin was selected and flipped with probability
+    \[P = e^{-\Delta U / T},\]
+whenever the energy increased by an amount \(\Delta U > 0\). If the energy decreased, the flip was always accepted. After allowing the system to equilibrate, a block spin transformation was applied to the lattice. This was the process used to create Figure~\ref{fig:blockspin}. 
+
+\subsection{Equilibrating  Systems}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{repetedBlockspin1.png}
+        \caption{Single  block transformations at a low temperature (\(T=1\)).}
+        \label{fig:aEqSys}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{repetedBlockspinTc.png}
+        \caption{Single block transformations near the critical temperature (\(T \approx T_c\)).}
+        \label{fig:bEqSys}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{repetedBlockspin5.png}
+        \caption{Single block transformations at a high temperature (\(T=5\)).}
+        \label{cEqSys}
+    \end{subfigure}
+\end{figure}
+
+To study the effects of this transformation, simulations were performed on a \(90 \times 90\) lattice at several temperatures above, below, and near the critical temperature.
+
+At temperatures well below the critical temperature, such as \(T = 1.0\), the lattice quickly evolved into a highly ordered state as seen in Figure~\ref{fig:aEqSys}. Before the block spin transform was applied the system equilibrated into several large structures with similar spins, as predicted by the Ising model at low temperatures. After the block spin transformation was applied, the transformed lattice appeared even more ordered than the original lattice. Small isolated fluctuations disappeared during the averaging process. This behavior suggests that the transformed lattice corresponds to a lower effective temperature than the original system.
+
+At temperatures well above the critical temperature, such as \(T = 5.0\), the lattice appeared highly disordered as seen in Figure~\ref{fig:bEqSys}. Before the transformation the system equilibrated into a disordered state with lots of small structures. The transformed lattice remained disordered after applying the transformation. In fact, the transformed lattice often appeared even more random because the majority rule averaged over already uncorrelated spins. This indicates that the effective temperature increases under the transformation when the original system is above the critical temperature.
+
+Near the critical temperature, around \(T_c \approx 2.269\), structures of many different scales formed. After the block spin transformation was applied, the transformed lattice looked very similar to the original lattice. This indicates that the transformation does not change the effective temperature for temperatures near the critical temperature. 
+
+\subsection{Repeated Transformations}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{moreBlockSpin1.png}
+        \caption{Repeated block transformations at a low temperature (\(T=1\)).}
+        \label{fig:aRepSys}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{moreBlockSpinTc.png}
+        \caption{Repeated block transformations near the critical temperature (\(T \approx T_c\)).}
+        \label{fig:bRepSys}
+    \end{subfigure}
+    \vspace{1em}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{moreBlockSpin5.png}
+        \caption{Repeated block transformations at a high temperature (\(T=5\)).}
+        \label{cRepSys}
+    \end{subfigure}
+\end{figure}
+As seen earlier, applying the block spin transformation changes the effective temperature. Thus, if we apply the transformation several times to the same system, we should expect to see the effective temperatures converge to one of several fixed points.  
+
+If the initial temperature is less then the critical temperature then repeated transformations cause the system to become increasingly ordered. Structures of aligned spins grow larger while fluctuations become less important. Eventually, after enough transformations the effective temperature approaches \(T=0\). This can be seen in Figure~\ref{fig:aRepSys} where after each block transformation the system looks like a system at a lower temperature, rapidly approaching zero effective temperature. 
+
+If the initial temperature is greater then the critical temperature then repeated transformations cause the  system to become increasingly disordered. Correlations between neighboring spins disappear and the system approaches a completely random state. Eventually, after enough transformations the effective temperature approaches \(T = \infty\). This can be seen in Figure~\ref{cRepSys} where after each block transformation the system looks like a system at a higher temperature, rapidly approaching infinite temperature. 
+
+At the critical temperature, \(T = T_c,\) the system is approximately the same under repeated transformations. This occurs because near the critical temperature the block spin transformation does not qualitatively change the structures in the system. Because the system appears similar at different scales, the critical temperature is itself a fixed point of the renormalization group transformation. This can be seen in Figure~\ref{fig:bRepSys} where after each block transformation the system looks to be at roughly the same temperature. 

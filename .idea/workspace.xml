@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c894f0a2-b2e7-41b4-ad6b-647039df4600" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project3PythonCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project3PythonCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/animate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/correlation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/deltaU.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/deltaUB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/initialize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/loop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/plot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/simulate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_0.5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_Tc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrC_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/corrC_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/extB_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/images/extB_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/proj3.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/proj3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/proj3.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup/proj3.tex" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3D0C4rY1G3SVeXOI8uGuJwVnPfq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/benja/Desktop/Course Content/Spring 2026/Thermo and Stat Mech/Project 3 - Ising Model/Project3PythonCode&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-f2b7a9f6281b-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c894f0a2-b2e7-41b4-ad6b-647039df4600" name="Changes" comment="" />
+      <created>1777409411433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777409411433</updated>
+    </task>
+    <task id="LOCAL-00001" summary="First draft of the Ising model. I would like to add an animation feature at some point, but this is a pretty good stepping of point I think for the code.">
+      <option name="closed" value="true" />
+      <created>1777411732586</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1777411732586</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First draft of the Ising model. I would like to add an animation feature at some point, but this is a pretty good stepping of point I think for the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="First draft of the Ising model. I would like to add an animation feature at some point, but this is a pretty good stepping of point I think for the code." />
+  </component>
+</project>
