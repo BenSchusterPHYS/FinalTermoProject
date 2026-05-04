@@ -1,0 +1,9 @@
+One way to gain insight into a physical problem is to investigate it numerically. For the Ising model, it is not realistic to compute the probabilities of all possible configurations directly, since their number grows exponentially with system size. Instead, we use a Monte Carlo simulation, which generates representative configurations of the system using random sampling.
+
+The basic idea is to evolve the system by randomly attempting to flip individual spins and deciding whether to accept or reject each change based on the resulting change in energy. At each step, a site on the lattice is chosen at random, and the change in energy associated with flipping that spin is computed,
+    \[\Delta U = U_{\text{new}} - U_{\text{old}}.\]
+If the change in energy is negative or zero, the spin flip is always accepted. If the change is positive, the spin is flipped with probability
+    \[P = e^{-\Delta U / T}.\]
+This acceptance rule ensures that energetically favorable moves are always accepted, while energetically unfavorable moves are still possible, with a probability that decreases exponentially with the energy cost and increases with temperature. As the simulation is iterated many times, the system approaches thermal equilibrium and produces configurations distributed according to the Boltzmann distribution.
+
+This procedure is known as the \textbf{Metropolis algorithm}, a version of the Monte Carlo method. 
