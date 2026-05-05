@@ -1,0 +1,21 @@
+If an external magnetic field is applied to our lattice, it tacks on another term to our energy:
+
+\begin{equation*}
+	U = -\epsilon\sum_{i,j\ pairs} s_i s_j - B \sum_{i} s_i
+\end{equation*}
+
+In the Metropolis algorithm, this makes the state aligned with the magnetic field much more likely. This is reflected in the correlation function among other things. Consider the example of $T=2.27$ now with a magnetic field $B=0.05$:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{extB_1.png}
+\end{figure}
+
+In this case the lattice converged almost completely to a unified magnetization, and the correlation function also converges to just over 0.5. This means that over any length scale we have correlation, because almost the entire lattice is pointed in one direction. If we plot correlation lengths for many temperatures values with $B=0.05$:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{extB_2.png}
+\end{figure}
+
+Interestingly, the critical temperature still appears to be at $T_c  =2.27$. The length in absolute terms increases in absolute terms below $T_c$ but the dropoff occurs in the same place and above $T_c$ the length again hovers between 2-4. 
