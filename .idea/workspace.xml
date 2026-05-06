@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c894f0a2-b2e7-41b4-ad6b-647039df4600" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Project3PythonCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project3PythonCode.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/animate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/correlation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/deltaU.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/deltaUB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/initialize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/loop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/plot.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/simulate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrA.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_0.5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrB_Tc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrC_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/corrC_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/extB_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/images/extB_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/proj3.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/proj3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/proj3.synctex.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup/proj3.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatexCode/TEXfiles/Pr832.tex" beforeDir="false" afterPath="$PROJECT_DIR$/LatexCode/TEXfiles/Pr832.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatexCode/TEXfiles/algorithm.tex" beforeDir="false" afterPath="$PROJECT_DIR$/LatexCode/TEXfiles/algorithm.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatexCode/proj3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/LatexCode/proj3.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

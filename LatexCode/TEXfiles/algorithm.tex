@@ -4,6 +4,15 @@ The basic idea is to evolve the system by randomly attempting to flip individual
     \[\Delta U = U_{\text{new}} - U_{\text{old}}.\]
 If the change in energy is negative or zero, the spin flip is always accepted. If the change is positive, the spin is flipped with probability
     \[P = e^{-\Delta U / T}.\]
-This acceptance rule ensures that energetically favorable moves are always accepted, while energetically unfavorable moves are still possible, with a probability that decreases exponentially with the energy cost and increases with temperature. As the simulation is iterated many times, the system approaches thermal equilibrium and produces configurations distributed according to the Boltzmann distribution.
+This ensures that energetically favorable moves are always accepted, while energetically unfavorable moves are still possible. As the simulation is iterated many times, the system approaches thermal equilibrium and produces configurations distributed according to the Boltzmann distribution. This process is known as the \textbf{Metropolis algorithm}. 
 
-This procedure is known as the \textbf{Metropolis algorithm}, a version of the Monte Carlo method. 
+The reason this method works is that it preserves the correct ratio of probabilities between neighboring states. Suppose two configurations differ by only a single spin flip and have energies \(U_1\) and \(U_2\). According to Boltzmann statistics, in thermal equilibrium the probability of a configuration is proportional to
+    \[P \propto e^{-U/T}.\]
+Therefore, the ratio of probabilities of the two states should satisfy
+    \[\frac{P_2}{P_1}=e^{-(U_2-U_1)/T}=e^{-\Delta U/T}.\]
+The Metropolis algorithm is constructed so that the probability of transitioning between these two states preserves this same ratio. If the second state has lower energy, then \(\Delta U < 0\), and the transition is always accepted. If the second state has higher energy, then the transition is accepted only with probability \(e^{-\Delta U/T}\). As a result, low-energy states are favored, but higher-energy states can still occur occasionally due to thermal fluctuations. This is physically important because real systems at finite temperature are never perfectly ordered. The occasional acceptance of higher-energy configurations allows the simulation to explore many possible states instead of becoming trapped in a local minimum.
+
+Because the transition probabilities reproduce the same ratios as the Boltzmann distribution, repeated application of the algorithm causes the simulation to evolve toward the correct equilibrium statistics. After many iterations, configurations appear with frequencies proportional to their Boltzmann probabilities, allowing thermodynamic quantities such as magnetization and energy to be estimated directly from the simulation.
+
+Strictly speaking, the algorithm approaches the exact Boltzmann distribution only in the limit of infinitely many iterations. In practice, however, after sufficiently many updates the system reaches an approximate thermal equilibrium that is accurate enough to measure physical quantities. This also reflects the fact that real physical systems do not explore all possible microstates completely, but instead sample only a representative subset over finite timescales.
+
