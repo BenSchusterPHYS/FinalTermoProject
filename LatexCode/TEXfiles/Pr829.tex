@@ -9,7 +9,7 @@ where it is understood that the first term averages over all pairs at the fixed 
 
 \textbf{(a)} Add a routine to the \texttt{ising} program to compute the correlation function for the current state of the lattice, averaging over all pairs separated either vertically or horizontally (but not diagonally) by $r$ units of distance, where $r$ varies from 1 to half the lattice size. Have the program execute this routine periodically and plot the results as a bar graph.
 
-\textbf{Answer:} I ran the correlation for a lattice of size 100 after one simulation and created the following bar graph:
+\textbf{Answer:} I ran the correlation for a lattice of size 100 and $T=2.27$ and created the following bar graph:
 
 \begin{figure}[H]
 	\centering
@@ -20,7 +20,7 @@ We can see the function decays exponentially as $r$ increases and after around $
 
 \textbf{(b)} Run this program at a variety of temperatures above, below, and near the critical point. Use a lattice size of at least 20, preferably larger (especially near the critical point). Describe the behavior of the correlation function at each temperature.
 
-\textbf{Answer:} I created charts of the correlation for the following temperatures: 0.5, 1, 2, 2.27 (the critical temperature), 3, and 5:
+\textbf{Answer:} I created charts of the correlation for the following temperatures: 0.5, 1, 2, 2.27 (the critical temperature), 3, and 5, using a lattice size of 50 so that equilibrium can be reached quicker:
 
 \begin{figure}[H]
 	\centering
@@ -52,22 +52,22 @@ We can see the function decays exponentially as $r$ increases and after around $
 	\end{subfigure}
 \end{figure}
 
-We can see that as temperature increases, the correlation function drops off much more rapidly with increasing $r$. At temperatures below $T_c$, there is significant correlation at large distances, which makes sense because this is the regime in which large scale structures appear. Above $T_c$, the correlation function drops to 0 rapidly because there are at most small structures, and the magnetization as a whole is largely uncorrelated.
+We can see that t temperatures below $T_c$, the correlation function is small in absolute terms, even at $r=1$, but correlation continues to large distances. This makes sense because the lattice is rather homogeneous at equilibrium. Above $T_c$, the correlation function drops to 0 rapidly because there are at most small structures, and the magnetization as a whole is largely uncorrelated.
 
 \textbf{(c)} Now add code to compute the \textit{average} correlation function over the duration of a run. (However, it's best to let the system "equilibrate" to a typical state before you begin accumulating averages.) The \textbf{correlation length} as defined as the distance over which the correlation function decreases by a factor of $e$. Estimate the correlation length at each temperature, and plot a graph of the correlation length vs. \texttt{T}.
 
-\textbf{Answer:} By converting to a scatter plot and log scale, I can come up with a linear fit to estimate the correlation length, which should be the negative reciprocal of the slope:
+\textbf{Answer:} I opted to sample correlation functions from 50 of the last 1000 frames of the simulation and take the average of them. By converting to a scatter plot and log scale, I can come up with a linear fit to estimate the correlation length, which should be the negative reciprocal of the slope:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{corrC_1.png}
 \end{figure}
 
-I was able to plot correlation lengths for a series of temperatures, including the critical temperature:
+I was able to plot correlation lengths for a series of temperatures surrounding the critical temperature, with a lattice size of 30:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{corrC_2.png}
 \end{figure}
 
-It can be seen that the correlation length generally decreases with $T$. Past the critical temperature, the correlation length seems to bottom out between 2-4. This is telling us that below $T_c$,  there is correlation across a relatively long distance, suggesting large structures. Above $T_c$, what correlation exists is only on short scales, implying small structures.
+While this data is a bit noisy, it can be seen that the correlation length sharply increases around $T_c$. Above this temperature, large scale structures are broken up so dipoles are uncorrelated. Below this temperature, magnetization is unified at equilibrium, so there is no meaningful correlation to be ascertained. Only around the critical temperature do these effects balance out and yield a significant correlation length, signifying the unique structures found at $T_c$.

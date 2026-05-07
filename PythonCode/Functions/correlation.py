@@ -1,27 +1,40 @@
-#correlation function for 8.29a
+#correlation function for 8.29 - single frame
 
-def cr(sim, r):
+def cr(grid, r):
     import numpy as np
     
-    grid = sim[-1]  # final state
     size = grid.shape[0]
 
-    si = np.average(grid) # s_i bar, overall average spin
+    si = np.mean(grid) # s_i bar, overall average spin
 
-    prod = np.zeros((size, size))
+    csum = 0.0
 
     for i in range(size):
         for j in range(size):
-            up = grid[(i-r) % size][j]
-            down = grid[(i+r) % size][j]
-            left = grid[i][(j-r) % size]
-            right = grid[i][(j+r) % size]
+            right = (i + r) % size
+            down  = (j + r) % size
 
-            prod[i][j] = grid[i][j] * (up + down + left + right)
+            csum += grid[i, j] * (
+                grid[right, j] + grid[i, down]
+            )
 
-    sisj = np.average(prod)/2 # s_i s_j bar, average spin product of pairs at distance r. divide by 2 to account for doubling up
+    sisj = csum / (2 * size * size) # s_i s_j bar, average spin product of pairs at distance r.
     
     return sisj - si**2
+
+def cr_avg(sim, r): #time average over 50 frames from the last 1000
+    import numpy as np
+
+    frames = sim[-1000::20]
+
+    corr = 0.0
+
+    for grid in frames:
+        corr += cr(grid, r)
+
+    corr /= 50
+
+    return corr
 
 # bar chart of correlation function for given r
 
@@ -35,7 +48,7 @@ def chart1(sim, T):
     r = np.arange(1,int(size/2) + 1) #generates array of r based on size
     correlation = np.zeros(len(r))
     for i in r:
-        correlation[i-1] = cr(sim,i)
+        correlation[i-1] = cr(grid,i)
 
     plt.figure()
     plt.bar(r,correlation)
@@ -46,7 +59,7 @@ def chart1(sim, T):
 
 # scatter log plot of correlation function for given r, can choose to return correlation length
 
-def chart2(sim, T, vals=False): 
+def chart2(sim, T, vals=False, scatter=False):
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -56,24 +69,28 @@ def chart2(sim, T, vals=False):
     r = np.arange(1,int(size/2) + 1) #generates array of r based on size
     correlation = np.zeros(len(r))
     for i in r:
-        correlation[i-1] = cr(sim,i)
+        correlation[i-1] = cr_avg(sim,i)
 
-    #plt.figure()
-    #plt.scatter(r,np.log(np.abs(correlation)))
+    mask = correlation > 0
+    r_fit = r[mask]
+    C_fit = correlation[mask]
 
-    m, b = np.polyfit(r[:10], np.log(np.abs(correlation[:10])), 1) #need to create a fit line
-    #x_fit = np.linspace(np.min(r), np.max(r), 100)
-    #y_fit = m * x_fit + b
-    #plt.plot(x_fit, y_fit, 'r')
+    m, b = np.polyfit(r_fit[:6], np.log(C_fit[:6]), 1) #need to create a fit line
 
     print(f"m = {m}")
     print(f"Correlation length is {-1/m}")
 
-    #plt.title(f"T = {T}",fontsize=20)
-    #plt.xlabel("r", fontsize=18)
-    #plt.xlim(right=10)
-    #plt.ylabel("log c(r)", fontsize=18)
-    #plt.show()
+    if scatter == True: #can plot line if you want
+        plt.figure()
+        plt.scatter(r,np.log(np.abs(correlation)))
+        x_fit = np.linspace(np.min(r), np.max(r), 100)
+        y_fit = m * x_fit + b
+        plt.plot(x_fit, y_fit, 'r')
+        plt.title(f"T = {T}",fontsize=20)
+        plt.xlabel("r", fontsize=18)
+        plt.xlim(right=10)
+        plt.ylabel("log c(r)", fontsize=18)
+        plt.show()
 
     if vals == True:
         return -1/m
